@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   		http://www.springframework.org/schema/beans/spring-beans.xsd
+	   		http://www.springframework.org/schema/mvc
+       		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       		http://www.springframework.org/schema/context
+       		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	   <context:annotation-config/>
+	   
+	   <!-- Configures the @Controller programming model -->
+	   <mvc:annotation-driven/>
+	   
+	   	<!-- <mvc:default-servlet-handler/>
+		<mvc:view-controller path="/" view-name="index"/>
+	    -->
+	   <context:component-scan	base-package="com.franciszabala"
+	   		use-default-filters="false">
+	   		<context:include-filter type="annotation"
+	   			expression="org.springframework.stereotype.Controller"/>
+	   </context:component-scan>
+	   
+	   <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	   	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+	   	<!-- <property name="prefix" value="/WEB-INF/admin/jsp/" /> -->
+	   	<!-- what happens with multiple folders like admin or view? -->
+	   	<property name="prefix" value="/WEB-INF/jsp/" />
+	   	<property name="suffix" value=".jsp" />
+	   </bean>
+	   <!-- 
+	   <bean id="messageSource"
+	   		class="org.springframework.context.support.ResourceBundleMessageSource">
+	   		<property name="basenames">
+	   			<list>
+	   				<value>messages</value>
+	   			</list>
+	   		</property>
+	   		<property name="useCodeAsDefaultMessage" value="false"/>
+	   		<property name="defaultEncoding" value="UTF-8"/>
+	   		<property name="fallbackToSystemLocale" value="false"/>
+	   </bean>
+ 		 -->
+</beans>
