@@ -2,14 +2,13 @@ package com.franciszabala.controller;
 
 import java.util.List;
 
+import com.franciszabala.service.ProductService;
+import com.franciszabala.model.Product;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.franciszabala.model.Product;
-import com.franciszabala.service.ProductService;
-
 
 
 
@@ -17,7 +16,7 @@ import com.franciszabala.service.ProductService;
 @RequestMapping("/store")
 public class StoreController {
 	
-	//private ProductService productService;
+	private ProductService productService;
 	
 	@Autowired
 	public void setProductService(ProductService productService) {
