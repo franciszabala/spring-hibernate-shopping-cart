@@ -47,9 +47,9 @@
  	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost/spring_test" />
+		<property name="url" value="jdbc:mysql://localhost/shopping-cart" />
 		<property name="username" value="root" />
-		<property name="password" value="" />
+		<property name="password" value="test" />
 	</bean>
 
 	<bean name="sessionFactory" 

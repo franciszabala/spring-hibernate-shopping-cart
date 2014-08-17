@@ -73,4 +73,11 @@ public class MasterController {
 		return "index";
 	}
 	
+	@RequestMapping("/home/test")
+	public String showHomePageTest(Model model) {
+		//model.addAttribute("form", new NewBankAccountForm());
+		//model.addAttribute("accountTypes", accountTypeService.findAll());
+		return "store/index";
+	}
+	
 }
