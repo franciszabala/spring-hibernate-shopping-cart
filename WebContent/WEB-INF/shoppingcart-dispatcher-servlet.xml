@@ -12,6 +12,8 @@
 
 	   <context:annotation-config/>
 	   
+	   <mvc:resources mapping="/assets/**" location="/assets/" />
+	   
 	   <!-- Configures the @Controller programming model -->
 	   <mvc:annotation-driven/>
 	   
