@@ -1,5 +1,7 @@
 package com.franciszabala.model;
 
+import java.math.BigInteger;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +20,14 @@ public class Product {
 	
 	private String productDesc;
 	
+	private BigInteger productPrice;
+	
+	public BigInteger getProductPrice() {
+		return productPrice;
+	}
+	public void setProductPrice(BigInteger productPrice) {
+		this.productPrice = productPrice;
+	}
 	public int getProductId() {
 		return productId;
 	}

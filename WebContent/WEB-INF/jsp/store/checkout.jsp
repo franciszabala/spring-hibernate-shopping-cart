@@ -13,9 +13,13 @@
 </head>
 <body>
 <p>Checkout page</p>
-
+<form>
+<table cellpadding="5" border="1">
+<tr><td>Product Name</td><td>Product Price</td><td>Quantity</td></tr>
 <c:forEach items="${cart}" var="product">
-  Name: ${product.productName}
+<tr><td>${product.productName}</td><td>${product.productPrice}</td><td><input type="text" name="productQuantity" id="_productQuantity" maxlength="5"></input></td></tr>
 </c:forEach>
+</table>
+</form>
 </body>
 </html>

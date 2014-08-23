@@ -24,18 +24,6 @@
 
 </ul>
 
-<form action="ajaxtestmethod" method="post">
-<table>
-<tbody><tr>
-<td>To remember:</td>
-<td><input name="thoughtParam" type="text"></td>
-</tr>
-<tr>
-<td><input type="submit"></td>
-<td></td>
-</tr>
-</tbody></table>
-</form>
-<a href="${pageContext.request.contextPath}/">Main page</a> 
+<a href="${pageContext.request.contextPath}/store/checkout">checkout</a> 
 </body>
 </html>

@@ -19,16 +19,31 @@
 
 </ul>
 
-  <h1>Add Product</h1>
-  <form method="post" action="${pageContext.request.contextPath}/store/addProduct">
 
-    <input type="hidden" name="productId" value="${product.productId}"/>
+
+<c:out value="${empty cart}" /> <br />
+<c:out value="${!empty cart}" />
+  <form method="post" action="${pageContext.request.contextPath}/store/addProduct">
+	
+    <input type="hidden" name="productId" value="${product.productId}" />
     <input type="hidden" name="productName" value="${product.productName}" />
-    <button>Add Product</button>
+	<c:if test="${!empty cart}"> 
+    	<c:forEach items="${cart}" var="cartItem">
+    	<c:if test="${cartItem.productId != product.productId}">    
+    		<button>Add Product</button>
+		</c:if>
+	
+	</c:forEach>
+	</c:if>
+	<c:if test="${empty cart}"> 
+	<button>Add Product</button>
+	</c:if>
+	
   </form>
+  
 
 <a href="${pageContext.request.contextPath}/">Main page</a> 
 </body>
 </html>
 
-//http://gerrydevstory.com/2014/03/04/using-sessionattribute-in-spring-mvc-to-implement-a-shopping-cart/
+<!-- http://gerrydevstory.com/2014/03/04/using-sessionattribute-in-spring-mvc-to-implement-a-shopping-cart/  -->
