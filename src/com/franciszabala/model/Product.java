@@ -11,6 +11,12 @@ import javax.persistence.Id;
 @Entity
 public class Product {
 	
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", productName="
+				+ productName + ", productDesc=" + productDesc
+				+ ", productPrice=" + productPrice + "]";
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int productId;

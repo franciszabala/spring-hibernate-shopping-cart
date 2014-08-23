@@ -8,5 +8,7 @@
 </head>
 <body>
 <p>This is the homepage </p>
+<p>Check PRG</p>
+<p>Check listener</p>
 </body>
 </html>

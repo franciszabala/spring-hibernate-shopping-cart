@@ -10,10 +10,10 @@
 </head>
 <body>
 <p>List of products</p>
-<c:url var="createUrl" value="/bank-accounts/create" />
+
 <ul>
-	<c:forEach items="${myArray}" var="myString">
-				<li><c:out value="${myString}" /></li>
+	<c:forEach items="${productList}" var="product">
+				<li><c:out value="${product.productName}" /></li>
 	</c:forEach>
 
 </ul>

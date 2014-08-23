@@ -8,16 +8,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Add product</title>
+<title>View product</title>
 </head>
 <body>
-<h2>Add product</h2>
-<form method="post" action="${pageContext.request.contextPath}/admin/product/saveProduct">
-  Name: <input type="text" name="productName"/>
-  Price: <input type="text" name="productPrice"/>
-  <button>Add Product</button>
+<h2>View product</h2>
+<form method="post" action="${pageContext.request.contextPath}/admin/product/updateProduct">
+<!-- do i have to put id? -->
+  Name: <input type="text" name="productName" value="${product.productName}"/>
+  Price: <input type="text" name="productPrice" value="${product.productPrice}"/>
+  <input type="hidden" name="productId" value="${product.productId}" />
+  <button>Edit Product</button>
 </form>
-
 
 </body>
 </html>
