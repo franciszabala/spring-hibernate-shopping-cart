@@ -8,6 +8,6 @@
 
 </head>
 <body>
-<p>This here is the index</p>
+<p><a href="store/home/">Store page</a></p>
 </body>
 </html>

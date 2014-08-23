@@ -21,19 +21,22 @@
 
 
 
-<c:out value="${empty cart}" /> <br />
-<c:out value="${!empty cart}" />
   <form method="post" action="${pageContext.request.contextPath}/store/addProduct">
 	
     <input type="hidden" name="productId" value="${product.productId}" />
     <input type="hidden" name="productName" value="${product.productName}" />
+    <c:set var="hasProductCheckedOut" value="false"/>
 	<c:if test="${!empty cart}"> 
     	<c:forEach items="${cart}" var="cartItem">
-    	<c:if test="${cartItem.productId != product.productId}">    
-    		<button>Add Product</button>
+    	<c:if test="${cartItem.productId == product.productId}">    
+    		<c:set var="hasProductCheckedOut" value="true"/>
 		</c:if>
 	
 	</c:forEach>
+		<c:if test="${hasProductCheckedOut != true}">    
+    			<button>Add Product</button>
+		</c:if>
+	
 	</c:if>
 	<c:if test="${empty cart}"> 
 	<button>Add Product</button>
@@ -42,7 +45,7 @@
   </form>
   
 
-<a href="${pageContext.request.contextPath}/">Main page</a> 
+<a href="${pageContext.request.contextPath}/store/home">Store homepage</a> 
 </body>
 </html>
 
