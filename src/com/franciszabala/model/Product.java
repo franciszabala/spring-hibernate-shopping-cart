@@ -10,47 +10,48 @@ import javax.persistence.Id;
 
 @Entity
 public class Product {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int productId;
 	
+	private String productDesc;
+	
+	@Column(nullable = false)
+	private String productName;
+	
+	private BigInteger productPrice;
+	
+	public String getProductDesc() {
+		return productDesc;
+	}
+	
+	public int getProductId() {
+		return productId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public BigInteger getProductPrice() {
+		return productPrice;
+	}
+	public void setProductDesc(String productDesc) {
+		this.productDesc = productDesc;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public void setProductPrice(BigInteger productPrice) {
+		this.productPrice = productPrice;
+	}
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productName="
 				+ productName + ", productDesc=" + productDesc
 				+ ", productPrice=" + productPrice + "]";
-	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int productId;
-	
-	@Column(nullable = false)
-	private String productName;
-	
-	private String productDesc;
-	
-	private BigInteger productPrice;
-	
-	public BigInteger getProductPrice() {
-		return productPrice;
-	}
-	public void setProductPrice(BigInteger productPrice) {
-		this.productPrice = productPrice;
-	}
-	public int getProductId() {
-		return productId;
-	}
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
-	public String getProductName() {
-		return productName;
-	}
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-	public String getProductDesc() {
-		return productDesc;
-	}
-	public void setProductDesc(String productDesc) {
-		this.productDesc = productDesc;
 	}
 
 }

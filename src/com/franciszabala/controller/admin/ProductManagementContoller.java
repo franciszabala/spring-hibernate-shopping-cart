@@ -1,6 +1,5 @@
 package com.franciszabala.controller.admin;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.franciszabala.model.Product;
+import com.franciszabala.model.formbean.ProductFormBean;
 import com.franciszabala.service.ProductService;
 
 @Controller
@@ -44,8 +44,8 @@ public class ProductManagementContoller {
 	
 	@RequestMapping(value="/addProductForm")
 	public String showAddProductPage(Model model) {
-		
-		model.addAttribute("product", new Product());
+		//To be used with spring form
+		model.addAttribute("productFormBean", new ProductFormBean());
 		return "admin/product/add-product";
 	}
 	
@@ -59,11 +59,11 @@ public class ProductManagementContoller {
 	}
 	
 	@RequestMapping(value="/saveProduct", method=RequestMethod.POST)
-	public String createProduct(Product product) {
-		productService.create(product);
+	public String createProduct(ProductFormBean productFormBean) {
+		productService.create(productFormBean.getProduct());
 		return "redirect:/admin/product";
 	}
-	
+	//does this need to be post?
 	@RequestMapping(value="/updateProduct", method=RequestMethod.POST)
 	public String updateProduct(Product product) {
 		
@@ -71,6 +71,25 @@ public class ProductManagementContoller {
 		productService.update(product);
 		return "redirect:/admin/product";
 	}
-	
+//	
+//	@RequestMapping (value="/loginWithBean", method=RequestMethod.GET)
+//	public String setupLoginUsingBean(Model model) {
+//		LoginFormBean formBean = new LoginFormBean();
+//		
+//		formBean.getUserLogin().setUsername("default username");
+//		//send copy of login bean to the form
+//		model.addAttribute("loginBackingBean",formBean);
+//		return "login";
+//		
+//	}
+//	
+//	@RequestMapping(value="/login", method=RequestMethod.POST)
+//	public String processLogin(
+//			LoginFormBean loginFormData,
+//			Model model) {
+//		model.addAttribute("message", loginFormData.getUserLogin().getUsername());
+//		return "destination";
+//	}
+//	
 	
 }

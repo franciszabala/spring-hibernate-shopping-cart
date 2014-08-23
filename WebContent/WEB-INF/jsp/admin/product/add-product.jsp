@@ -12,12 +12,20 @@
 </head>
 <body>
 <h2>Add product</h2>
+<!-- if spring form, you can use new Product() -->
 <form method="post" action="${pageContext.request.contextPath}/admin/product/saveProduct">
   Name: <input type="text" name="productName"/>
   Price: <input type="text" name="productPrice"/>
   <button>Add Product</button>
 </form>
 
+
+<form:form action="${pageContext.request.contextPath}/admin/product/saveProduct" method="post"
+commandName="productFormBean">
+<form:input path="product.productName" />
+<form:input path="product.productDesc" />
+<input type="submit" />
+</form:form>
 
 </body>
 </html>

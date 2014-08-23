@@ -14,6 +14,7 @@
 <h2>Edit product</h2>
 <form method="post" action="${pageContext.request.contextPath}/admin/product/updateProduct">
 <!-- do i have to put id? -->
+<!-- try to use spring form -->
   Name: <input type="text" name="productName" value="${product.productName}"/>
   Price: <input type="text" name="productPrice" value="${product.productPrice}"/>
   <input type="hidden" name="productId" value="${product.productId}" />
